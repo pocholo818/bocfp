@@ -1,6 +1,6 @@
 <head>
-  <link rel="stylesheet" href="../css/sidebar.css">
-  <script src="../js/sidebar.js"></script>
+  <link rel="stylesheet" href="css/sidebar.css">
+  <script src="js/sidebar.js"></script>
 </head>
 
 <div id="mySidenav" class="sidenav">
