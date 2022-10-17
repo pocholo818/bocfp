@@ -20,7 +20,8 @@ class Search {
 	
 		$sqlQuery = "SELECT * FROM child";
 		if($_POST['searchQuery'] != ''){
-		  $sqlQuery .= ' WHERE name LIKE "%'.str_replace(' ', '%', $_POST['searchQuery']).'%" ';
+		  $sqlQuery .= ' WHERE fname LIKE "%'.str_replace(' ', '%', $_POST['searchQuery']).'%" 
+		  				OR lname LIKE "%'.str_replace(' ', '%', $_POST['searchQuery']).'%" ';
 		}
 		$sqlQuery .= ' ORDER BY id ASC';
 
@@ -43,27 +44,33 @@ class Search {
 			<table class="table table-striped table-bordered">
 			  <tr>
 				<th>ID</th>
-				<th>Name</th>
-				<th>Height</th>
-				<th>Weight</th>
-				<th>BMI</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Birth Date</th>
+				<th>Sex</th>
+				<th>Guardian</th>
+				<th>Contact Number</th>
+				<th>Purok</th>
 			  </tr>';
 	
 		if($totalSearchResults > 0) {	  
-		  while ($product = $result->fetch_assoc()) { 	
+		  while ($child = $result->fetch_assoc()) { 	
 			$resultHTML .= '
 			<tr>
-			  <td>'.$product["id"].'</td>
-			  <td>'.$product["name"].'</td>
-			  <td>'.$product["height"].'</td>
-			  <td>'.$product["weight"].'</td>
-			  <td>'.$product["bmi"].'</td>
+			  <td>'.$child["id"].'</td>
+			  <td>'.$child["fname"].'</td>
+			  <td>'.$child["lname"].'</td>
+			  <td>'.$child["bdate"].'</td>
+			  <td>'.$child["sex"].'</td>
+			  <td>'.$child["guardian"].'</td>
+			  <td>'.$child["contact"].'</td>
+			  <td>'.$child["purok"].'</td>
 			</tr>';
 		  }
 		} else {
 		  $resultHTML .= '
 		  <tr>
-			<td colspan="5" align="center">No Record Found</td>
+			<td colspan="8" align="center">No Record Found</td>
 		  </tr>';
 		}
 
@@ -118,7 +125,7 @@ class Search {
 			for($count = 0; $count < count($pageData); $count++){
 				if($page == $pageData[$count]){
 					  $pageLink .= '
-					  <li class="page-item active">
+					  <li class="page-item disabled">
 					  <a class="page-link" href="#">'.$pageData[$count].' <span class="sr-only">(current)</span></a>
 					  </li>';
 	  
@@ -138,7 +145,7 @@ class Search {
 						  <a class="page-link" href="#">Next</a>
 					  </li>';
 					  } else {
-					  $nextLink = '<li class="page-item"><a class="page-link" href="javascript:void(0)" data-page_number="'.$nextData.'">Next</a></li>';
+					  $nextLink = '<li class="page-item"><a class="" href="javascript:void(0)" data-page_number="'.$nextData.'">Next</a></li>';
 					  }
 					}
 				  else {

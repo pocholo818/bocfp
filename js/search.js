@@ -2,7 +2,7 @@ $(document).ready(function(){
 	searchData(1);
 	function searchData(page, searchQuery = '') {
 	  $.ajax({
-		url:"../load_data.php",
+		url:"load_data.php",
 		method:"POST",
 		data:{search:'search', page:page, searchQuery:searchQuery},
 		success:function(data) {
