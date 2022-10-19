@@ -145,7 +145,7 @@ class Search {
 						  <a class="page-link" href="#">Next</a>
 					  </li>';
 					  } else {
-					  $nextLink = '<li class="page-item"><a class="" href="javascript:void(0)" data-page_number="'.$nextData.'">Next</a></li>';
+					  $nextLink = '<li class="page-item"><a class="page-link" href="javascript:void(0)" data-page_number="'.$nextData.'">Next</a></li>';
 					  }
 					}
 				  else {
