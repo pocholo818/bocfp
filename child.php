@@ -7,8 +7,8 @@
     <?php include 'template/navbar.php'; ?>
 
     <div class="container">	
-	<h3></h3>
-      <br />
+	  <h3></h3>
+      <br>
       <div class="card">
         <div class="card-header">Child List</div>
         <div class="card-body" id="searchSection">
@@ -32,7 +32,7 @@
                     </button>
                 </div>
 
-                <form action="sql/inventory_update.php" method="POST">
+                <form id="form" method="POST">
 
                     <div class="modal-body">
 
@@ -82,7 +82,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" name="updatedata" class="btn btn-success">Update Child</button>
+                        <button type="submit" id="update" class="btn btn-success">Update Child</button>
                     </div>
                 </form>
 
@@ -90,5 +90,34 @@
         </div>
     </div>
 
+    <script>
+      // edit
+      $(document).on("click", "#update", function() { 
+        $.ajax({
+          url: "sql/child_update.php",
+          type: "POST",
+          cache: false,
+          data:{
+            id: $('#child_id').val(),
+            first_name: $('#first_name').val(),
+            last_name: $('#last_name').val(),
+            bday: $('#bday').val(),
+            sex: $('#sex').val(),
+            guardian: $('#guardian').val(),
+            contact_number: $('#contact_number').val(),
+            purok: $('#purok').val()
+          },
+          success: function(dataResult){
+            var dataResult = JSON.parse(dataResult);
+            if(dataResult.statusCode==200){
+              $('#editmodal').modal().hide();
+              alert('Child Updated successfully!');
+              // location.reload();		
+            }
+          }
+
+        });
+      }); 
+    </script>
 
 <?php include 'template/footer.php' ?>
