@@ -51,6 +51,7 @@ class Search {
 				<th>Guardian</th>
 				<th>Contact Number</th>
 				<th>Purok</th>
+				<th colspan="2" style="text-align: center;">Action</th>
 			  </tr>';
 	
 		if($totalSearchResults > 0) {	  
@@ -65,6 +66,8 @@ class Search {
 			  <td>'.$child["guardian"].'</td>
 			  <td>'.$child["contact"].'</td>
 			  <td>'.$child["purok"].'</td>
+			  <td>'.'<button type="button" style="width:100%;" class="btn btn-success editbtn">EDIT</button>'.'</td>
+			  <td>'.'<button type="button" style="width:100%;" class="btn btn-danger deletebtn"> DELETE </button>'.'</td>
 			</tr>';
 		  }
 		} else {
@@ -168,3 +171,31 @@ class Search {
 	}	
 }
 ?>
+
+<!-- edit modal js -->
+<script>
+	$(document).ready(function () {
+
+		$('.editbtn').on('click', function () {
+
+			$('#editmodal').modal('show');
+
+			$tr = $(this).closest('tr');
+
+			var data = $tr.children("td").map(function () {
+				return $(this).text();
+			}).get();
+
+			console.log(data);
+
+			$('#child_id').val(data[0]);
+			$('#first_name').val(data[1]);
+			$('#last_name').val(data[2]);
+			$('#bday').val(data[3]);
+			$('#sex').val(data[4]);
+			$('#guardian').val(data[5]);
+			$('#contact_number').val(data[6]);
+			$('#purok').val(data[7]);
+		});
+	});
+</script>

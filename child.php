@@ -4,11 +4,13 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="js/search.js"></script>
 
+    <?php include 'template/navbar.php'; ?>
+
     <div class="container">	
 	<h3></h3>
       <br />
       <div class="card">
-        <div class="card-header">Child Search</div>
+        <div class="card-header">Child List</div>
         <div class="card-body" id="searchSection">
           <div class="form-group">
             <input type="text" name="search" id="search" class="form-control" placeholder="Type your search keyword here" />
@@ -17,5 +19,76 @@
         </div>
       </div>
     </div>
+
+    <!-- EDIT FORM -->
+    <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"> Edit Child Info </h5>
+                    <button type="button" class="btn btn-success" data-dismiss="modal" aria-label="Close">
+                        X
+                    </button>
+                </div>
+
+                <form action="sql/inventory_update.php" method="POST">
+
+                    <div class="modal-body">
+
+                        <input type="hidden" name="id" id="child_id" required>
+
+                        <div class="form-group">
+                            <label> First Name </label>
+                            <input type="text" name="first_name" id="first_name" class="form-control" required
+                                placeholder="Enter New Product Name">
+                        </div>
+
+                        <div class="form-group">
+                            <label> Last Name </label>
+                            <input type="text" name="last_name" id="last_name" class="form-control" required
+                                placeholder="Enter New Product Code">
+                        </div>
+
+                        <div class="form-group">
+                            <label> Birth Date </label>
+                            <input type="text" name="bday" step="any" id="bday" class="form-control" disabled
+                                placeholder="Enter New Price">
+                        </div>
+
+                        <div class="form-group">
+                            <label> Sex </label>
+                            <input type="text" name="sex" id="sex" class="form-control" required
+                                placeholder="Enter New Quantity">
+                        </div>
+
+                        <div class="form-group">
+                            <label> Guardian </label>
+                            <input type="text" name="guardian" id="guardian" class="form-control" required
+                                placeholder="Enter New Quantity">
+                        </div>
+
+                        <div class="form-group">
+                            <label> Contact Number </label>
+                            <input type="text" name="contact_number" id="contact_number" class="form-control" required
+                                placeholder="Enter New Quantity">
+                        </div>
+
+                        <div class="form-group">
+                            <label> Purok </label>
+                            <input type="text" name="purok" id="purok" class="form-control" required
+                                placeholder="Enter New Quantity">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" name="updatedata" class="btn btn-success">Update Child</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
 
 <?php include 'template/footer.php' ?>
