@@ -129,7 +129,7 @@
 
                         <div class="form-group">
                             <label> Sex </label>
-                            <input type="text" maxlength="1" name="sexx" id="sexx" class="form-control" required
+                            <input type="text" maxlength="1"  name="sexx" id="sexx" class="form-control" style="text-transform:uppercase" oninput="this.value = this.value.toUpperCase()" required
                                 placeholder="Enter Sex">
                         </div>
 
