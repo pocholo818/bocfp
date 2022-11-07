@@ -172,6 +172,16 @@ class Search {
 }
 ?>
 
+<script>
+    // add
+    $(document).ready(function () {
+
+        $('.addbtn').on('click', function () {
+            $('#addmodal').modal('show');
+        });
+      });
+  </script>
+
 <!-- edit modal js -->
 <script>
 	$(document).ready(function () {
@@ -191,11 +201,11 @@ class Search {
 			$('#child_id').val(data[0]);
 			$('#first_name').val(data[1]);
 			$('#last_name').val(data[2]);
-			$('#bday').val(data[3]);
-			$('#sex').val(data[4]);
-			$('#guardian').val(data[5]);
+			$('#birthday').val(data[3]);
+			$('#sexx').val(data[4]);
+			$('#guardiann').val(data[5]);
 			$('#contact_number').val(data[6]);
-			$('#purok').val(data[7]);
+			$('#purokk').val(data[7]);
 		});
 	});
 </script>

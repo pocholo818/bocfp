@@ -1,5 +1,5 @@
-    <!-- DELETE FORM  -->
-    <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<!-- DELETE FORM  -->
+<div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -14,7 +14,7 @@
 
                     <div class="modal-body">
 
-                        <input type="hidden" name="child" id="child_delete" required>
+                        <input type="text" name="child_delete" id="child_delete" required>
 
                         <h4> Do you want to Delete this Child?</h4>
                     </div>
@@ -27,22 +27,3 @@
             </div>
         </div>
     </div>
-
-    <script>
-    // delete
-      $(document).on("click", "#delete", function() { 
-        $.ajax({
-          url: "sql/child_delete.php",
-          type: "POST",
-          cache: false,
-          data:{
-            id: $('#child_delete').val()
-          },
-          success: function(dataResult2){
-            alert($('#child_delete').val());
-            alert(dataResult2);
-          }
-          
-        });
-      });
-    </script>
