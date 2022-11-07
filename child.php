@@ -90,6 +90,36 @@
         </div>
     </div>
 
+    <!-- DELETE FORM  -->
+    <div class="modal fade" id="deletemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"> Delete Child Data </h5>
+                    <button type="button" class="btn btn-success" data-dismiss="modal" aria-label="Close">
+                        x
+                    </button>
+                </div>
+
+                <form id="fom" method="POST">
+
+                    <div class="modal-body">
+
+                        <input name="child_delete" id="child_delete">
+
+                        <h4> Do you want to Delete this Child?</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">NO</button>
+                        <button type="submit" id="delete" class="btn btn-success">YES</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
     <script>
       // edit
       $(document).on("click", "#update", function() { 
@@ -109,15 +139,39 @@
           },
           success: function(dataResult){
             var dataResult = JSON.parse(dataResult);
-            if(dataResult.statusCode==200){
+            if(dataResult.statusCode == 200){
               $('#editmodal').modal().hide();
-              alert('Child Updated successfully!');
+              alert('Child Updated Successfully!');
               // location.reload();		
             }
           }
 
         });
       }); 
+    </script>
+
+    <script>
+    // delete
+      $(document).on("click", "#delete", function() { 
+        // console.log('output: '+$('#child_delete').val());
+        // var $ele = $(this).parent().parent();
+        $.ajax({
+          url: "sql/child_delete.php",
+          type: "POST",
+          cache: false,
+          data:{
+            id: $('#child_delete').val()
+          },
+          success: function(dataResult){
+            var dataResult = JSON.parse(dataResult);
+            if(dataResult.statusCode == 200){
+              // $('#deletemodal').modal().hide();
+              alert('Child Deleted Successfully!');
+            }
+          }
+          
+        });
+      });
     </script>
 
 <?php include 'template/footer.php' ?>

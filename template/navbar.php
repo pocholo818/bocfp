@@ -7,10 +7,10 @@
 <div id="mySidenav" class="sidenav">
   <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
   <img src="photo/old cab logo.png" class="logo">
-  <a href="#"><span class="material-symbols-outlined">info</span> Announcements</a>
-  <a href="#"><span class="material-symbols-outlined">child_care</span> Child Record</a>
-  <a href="#"><span class="material-symbols-outlined">account_circle</span> Purok Health Workers</a>
-  <a href="#"><span class="material-symbols-outlined">logout</span> Logout</a>
+  <!-- <a href="#"><span class="material-symbols-outlined">info</span> Announcements</a> -->
+  <a href="child.php"><span class="material-symbols-outlined">child_care</span> Child List</a>
+  <!-- <a href="#"><span class="material-symbols-outlined">account_circle</span> Purok Health Workers</a> -->
+  <a href="index.php"><span class="material-symbols-outlined">logout</span> Logout</a>
 </div>
 
 <div id="main">

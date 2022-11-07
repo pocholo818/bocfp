@@ -66,8 +66,8 @@ class Search {
 			  <td>'.$child["guardian"].'</td>
 			  <td>'.$child["contact"].'</td>
 			  <td>'.$child["purok"].'</td>
-			  <td>'.'<button type="button" style="width:100%;" class="btn btn-success editbtn">EDIT</button>'.'</td>
-			  <td>'.'<button type="button" style="width:100%;" class="btn btn-danger deletebtn"> DELETE </button>'.'</td>
+			  <td>'.'<button type="button" style="width:100%;" class="btn btn-success editbtn"><span class="material-symbols-outlined">edit</span></button>'.'</td>
+			  <td>'.'<button type="button" style="width:100%;" class="btn btn-danger deletebtn"><span class="material-symbols-outlined">delete</span></button>'.'</td>
 			</tr>';
 		  }
 		} else {
@@ -199,3 +199,25 @@ class Search {
 		});
 	});
 </script>
+
+<script>
+    // delete
+    $(document).ready(function () {
+
+        $('.deletebtn').on('click', function () {
+
+            $('#deletemodal').modal('show');
+
+            $tr = $(this).closest('tr');
+
+            var data = $tr.children("td").map(function () {
+                return $(this).text();
+            }).get();
+
+            console.log(data);
+
+            $('#child_delete').val(data[0]);
+
+        });
+      });
+  </script>
