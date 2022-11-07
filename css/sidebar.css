@@ -14,7 +14,7 @@
   .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 2.8vw;
+    font-size: 2vw;
     color: white;
     display: block;
     transition: 0.3s;
@@ -36,7 +36,7 @@
 
   #main {
     transition: margin-left .5s;
-    padding: 2vw;
+    padding: .9vw;
     background-color: #168554;
     color: white;
   }
