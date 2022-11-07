@@ -8,13 +8,13 @@
     background-color: #168554;
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 60px;
+    padding-top: 5vw;
   }
 
   .sidenav a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 2.8vw;
     color: white;
     display: block;
     transition: 0.3s;
@@ -36,7 +36,7 @@
 
   #main {
     transition: margin-left .5s;
-    padding: 16px;
+    padding: 2vw;
     background-color: #168554;
     color: white;
   }
