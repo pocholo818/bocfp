@@ -1,7 +1,7 @@
 <?php
 	include 'connect.php';
 
-	$id2 = $_POST['child_deletez'];
+	$id2 = $_POST['id'];
 	$sql = "DELETE FROM child WHERE id = '".$id2."'";
     
 	if (mysqli_query($conn, $sql)) {

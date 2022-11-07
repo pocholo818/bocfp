@@ -177,7 +177,7 @@
 
                         <div class="modal-body">
 
-                            <input type="text" name="child_deletez" id="child_delete" required>
+                            <input type="hidden" name="child_delete" id="child_delete" required>
 
                             <h4> Do you want to Delete this Child?</h4>
                         </div>
@@ -190,6 +190,7 @@
                 </div>
             </div>
         </div>
+
 
     <script>
         // add
@@ -277,8 +278,7 @@
             id: $('#child_delete').val()
           },
           success: function(dataResult2){
-            alert($('#child_delete').val());
-            alert(dataResult2);
+            alert("Child Deleted!");
           }
           
         });
