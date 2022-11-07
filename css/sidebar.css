@@ -22,7 +22,8 @@
 
   .sidenav a:hover {
     transition: .5s;
-    text-decoration: underline;
+    background-color: white;
+    color: #168554;
   }
 
   .sidenav .closebtn {

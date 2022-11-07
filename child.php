@@ -1,7 +1,6 @@
 <?php include 'template/header.php' ?>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/placeholder-loading/dist/css/placeholder-loading.min.css">
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="js/search.js"></script>
 
     <?php include 'template/navbar.php'; ?>
@@ -10,7 +9,8 @@
 	  <h3></h3>
       <br>
       <div class="card">
-        <div class="card-header">Child List</div>
+        <div class="card-header">Child List 
+        <button type="button" style="width:5vw; float: right;" class="btn btn-success deletebtn"><span class="material-symbols-outlined">Add</span></button></div>
         <div class="card-body" id="searchSection">
           <div class="form-group">
             <input type="text" name="search" id="search" class="form-control" placeholder="Type your search keyword here" />
@@ -106,7 +106,7 @@
 
                     <div class="modal-body">
 
-                        <input name="child_delete" id="child_delete">
+                        <input type="hidden" name="child" id="child_delete" required>
 
                         <h4> Do you want to Delete this Child?</h4>
                     </div>
@@ -138,12 +138,9 @@
             purok: $('#purok').val()
           },
           success: function(dataResult){
+            alert(dataResult);
             var dataResult = JSON.parse(dataResult);
-            if(dataResult.statusCode == 200){
-              $('#editmodal').modal().hide();
-              alert('Child Updated Successfully!');
-              // location.reload();		
-            }
+            alert(dataResult);
           }
 
         });
@@ -153,8 +150,6 @@
     <script>
     // delete
       $(document).on("click", "#delete", function() { 
-        // console.log('output: '+$('#child_delete').val());
-        // var $ele = $(this).parent().parent();
         $.ajax({
           url: "sql/child_delete.php",
           type: "POST",
@@ -162,12 +157,9 @@
           data:{
             id: $('#child_delete').val()
           },
-          success: function(dataResult){
-            var dataResult = JSON.parse(dataResult);
-            if(dataResult.statusCode == 200){
-              // $('#deletemodal').modal().hide();
-              alert('Child Deleted Successfully!');
-            }
+          success: function(dataResult2){
+            alert($('#child_delete').val());
+            alert(dataResult2);
           }
           
         });
