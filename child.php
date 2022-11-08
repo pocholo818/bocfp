@@ -100,7 +100,7 @@
                     <h5 class="modal-title" id="exampleModalLabel"> Edit Child Info </h5>
                     <button type="button" class="btn btn-success" data-dismiss="modal" aria-label="Close">
                         X
-                    </button>test
+                    </button>
                 </div>
 
                 <form id="form" method="POST">
